@@ -7,6 +7,15 @@ import (
 	c "github.com/jroimartin/gocui"
 )
 
+const (
+	TOP_LEFT     = "TL"
+	TOP_RIGHT    = "TR"
+	BOTTOM_LEFT  = "BR"
+	BOTTOM_RIGHT = "BR"
+	LEFT_HALF    = "LH"
+	RIGHT_HALF   = "RH"
+)
+
 func cursorDown(g *c.Gui, v *c.View) error {
 	if v != nil {
 		cx, cy := v.Cursor()
@@ -82,32 +91,32 @@ func CreatePromptView(g *c.Gui, title string) error {
 
 func CreateLeftHalfView(g *c.Gui, title string) (*c.View, error) {
 	tw, th := g.Size()
-	return createCustomPane(g, title, "LH", 0, 0, (tw/2)-1, th-1)
+	return createCustomPane(g, title, LEFT_HALF, 0, 0, (tw/2)-1, th-1)
 }
 
 func CreateRightHalfView(g *c.Gui, title string) (*c.View, error) {
 	tw, th := g.Size()
-	return createCustomPane(g, title, "RH", (tw/2)+1, 0, tw-1, th-1)
+	return createCustomPane(g, title, RIGHT_HALF, (tw/2)+1, 0, tw-1, th-1)
 }
 
 func CreateTopRightQuarterView(g *c.Gui, title string) (*c.View, error) {
 	tw, th := g.Size()
-	return createCustomPane(g, title, "TR", (tw/2)+1, 0, tw-1, (th/2)-1)
+	return createCustomPane(g, title, TOP_RIGHT, (tw/2)+1, 0, tw-1, (th/2)-1)
 }
 
 func CreateBottomRightQuarterView(g *c.Gui, title string) (*c.View, error) {
 	tw, th := g.Size()
-	return createCustomPane(g, title, "BR", (tw/2)+1, (th/2)+1, tw-1, th-1)
+	return createCustomPane(g, title, BOTTOM_RIGHT, (tw/2)+1, (th/2)+1, tw-1, th-1)
 }
 
 func CreateTopLeftQuarterView(g *c.Gui, title string) (*c.View, error) {
 	tw, th := g.Size()
-	return createCustomPane(g, title, "TL", 0, 0, (tw/2)-1, (th/2)-1)
+	return createCustomPane(g, title, TOP_LEFT, 0, 0, (tw/2)-1, (th/2)-1)
 }
 
 func CreateBottomLeftQuarterView(g *c.Gui, title string) (*c.View, error) {
 	tw, th := g.Size()
-	return createCustomPane(g, title, "BL", 0, (th/2)+1, (tw/2)-1, th-1)
+	return createCustomPane(g, title, BOTTOM_LEFT, 0, (th/2)+1, (tw/2)-1, th-1)
 }
 
 func createCustomPane(g *c.Gui, title, id string, x0, y0, x1, y1 int) (*c.View, error) {
