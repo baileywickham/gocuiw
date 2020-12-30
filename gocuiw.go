@@ -184,8 +184,25 @@ func setTopWindowTitle(g *c.Gui, view_name, title string) {
 	v.Title = fmt.Sprintf("%v (Ctrl-q to close)", title)
 }
 
-func keybindings(g *c.Gui) error {
+func SetKeybindings(g *c.Gui) error {
 	// Add some sane defaults, add window manager
+	if err := g.SetKeybinding("", c.KeyCtrlC, c.ModNone,
+		func(g *c.Gui, v *c.View) error { return c.ErrQuit }); err != nil {
+		return err
+	}
+	if err := g.SetKeybinding("main", c.KeyArrowDown, c.ModNone, cursorDown); err != nil {
+		return err
+	}
+	if err := g.SetKeybinding("main", c.KeyArrowUp, c.ModNone, cursorUp); err != nil {
+		return err
+	}
+
+	if err := g.SetKeybinding("msg", c.KeyEnter, c.ModNone, delMsg); err != nil {
+		return err
+	}
+	if err := g.SetKeybinding("main", c.KeyEnter, c.ModNone, getLine); err != nil {
+		return err
+	}
 
 	return nil
 }
