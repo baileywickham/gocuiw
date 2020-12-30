@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
+	cw "github.com/baileywickham/gocuiw"
 	c "github.com/jroimartin/gocui"
 )
 
@@ -36,45 +36,45 @@ func layout(g *c.Gui) error {
 	//if _, err := CreateLeftHalfView(g, "hi", "2"); err != nil {
 	//	return err
 	//}
-	if _, err := CreateTopRightQuarterView(g, "tr", "3"); err != nil {
+	if _, err := cw.CreateTopRightQuarterView(g, "tr", "3"); err != nil {
 		return err
 	}
-	if _, err := CreateBottomRightQuarterView(g, "br", "4"); err != nil {
+	if _, err := cw.CreateBottomRightQuarterView(g, "br", "4"); err != nil {
 		return err
 	}
-	if _, err := CreateBottomLeftQuarterView(g, "bl", "3"); err != nil {
+	if _, err := cw.CreateBottomLeftQuarterView(g, "bl", "3"); err != nil {
 		return err
 	}
-	if _, err := CreateTopLeftQuarterView(g, "tl", "4"); err != nil {
+	if _, err := cw.CreateTopLeftQuarterView(g, "tl", "4"); err != nil {
 		return err
 	}
 
 	return nil
-	maxX, maxY := g.Size()
-	if v, err := g.SetView("main", 0, 0, maxX-1, maxY-1); err != nil {
-		if err != c.ErrUnknownView {
-			return err
-		}
-		// highlight items
-		v.Frame = true
-		v.Title = " main "
-		v.Highlight = true
-		v.SelBgColor = c.ColorGreen
-		v.SelFgColor = c.ColorBlack
+	//maxX, maxY := g.Size()
+	//if v, err := g.SetView("main", 0, 0, maxX-1, maxY-1); err != nil {
+	//	if err != c.ErrUnknownView {
+	//		return err
+	//	}
+	//	// highlight items
+	//	v.Frame = true
+	//	v.Title = " main "
+	//	v.Highlight = true
+	//	v.SelBgColor = c.ColorGreen
+	//	v.SelFgColor = c.ColorBlack
 
-		fmt.Fprintln(v, "Item 1")
-		fmt.Fprintln(v, "Item 2")
-		fmt.Fprintln(v, "Item 3")
-		fmt.Fprint(v, "\rWill be")
-		fmt.Fprint(v, "deleted\rItem 4\nItem 5")
+	//	fmt.Fprintln(v, "Item 1")
+	//	fmt.Fprintln(v, "Item 2")
+	//	fmt.Fprintln(v, "Item 3")
+	//	fmt.Fprint(v, "\rWill be")
+	//	fmt.Fprint(v, "deleted\rItem 4\nItem 5")
 
-		if _, err := g.SetCurrentView("main"); err != nil {
-			return err
-		}
+	//	if _, err := g.SetCurrentView("main"); err != nil {
+	//		return err
+	//	}
 
-	}
+	//}
 
-	return nil
+	//return nil
 }
 
 func main() {

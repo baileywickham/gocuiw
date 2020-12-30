@@ -1,0 +1,8 @@
+github.com/baileywickham/gocuiw v0.0.0-20201230223302-947dd88b2fe0 h1:E30zzwt1/vPBtv1xhcGDRla44F08XfwcJ7xy2OfMSGE=
+github.com/baileywickham/gocuiw v0.0.0-20201230223302-947dd88b2fe0/go.mod h1:oy2FIlsFMwaupp7/0h5oRaec8BgyTwY42JJ6q8ZeS/A=
+github.com/jroimartin/gocui v0.4.0 h1:52jnalstgmc25FmtGcWqa0tcbMEWS6RpFLsOIO+I+E8=
+github.com/jroimartin/gocui v0.4.0/go.mod h1:7i7bbj99OgFHzo7kB2zPb8pXLqMBSQegY7azfqXMkyY=
+github.com/mattn/go-runewidth v0.0.9 h1:Lm995f3rfxdpd6TSmuVCHVb/QhupuXlYr8sCI/QdE+0=
+github.com/mattn/go-runewidth v0.0.9/go.mod h1:H031xJmbD/WCDINGzjvQ9THkh0rPKHF+m2gUSrubnMI=
+github.com/nsf/termbox-go v0.0.0-20201124104050-ed494de23a00 h1:Rl8NelBe+n7SuLbJyw13ho7CGWUt2BjGGKIoreCWQ/c=
+github.com/nsf/termbox-go v0.0.0-20201124104050-ed494de23a00/go.mod h1:T0cTdVuOwf7pHQNtfhnEbzHbcNyCEcVU4YPpouCbVxo=

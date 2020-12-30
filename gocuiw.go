@@ -1,4 +1,4 @@
-package main
+package gocuiw
 
 import (
 	"fmt"
@@ -185,5 +185,6 @@ func setTopWindowTitle(g *c.Gui, view_name, title string) {
 }
 
 func keybindings(g *c.Gui) error {
+	// Add some sane defaults, add window manager
 
 }
