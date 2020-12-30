@@ -82,87 +82,36 @@ func CreatePromptView(g *c.Gui, title string) error {
 
 func CreateLeftHalfView(g *c.Gui, title string) (*c.View, error) {
 	tw, th := g.Size()
-	v, err := g.SetView("lh", 0, 0, (tw/2)-1, th-1)
-	if err != nil && err != c.ErrUnknownView {
-		return nil, err
-	}
-	v.Editable = true
-	v.Title = title
-	g.Cursor = true
-
-	v, err = g.SetCurrentView("lh")
-
-	return v, err
-
+	return createCustomPane(g, title, "LH", 0, 0, (tw/2)-1, th-1)
 }
 
 func CreateRightHalfView(g *c.Gui, title string) (*c.View, error) {
 	tw, th := g.Size()
-	v, err := g.SetView("rh", (tw/2)+1, 0, tw-1, th-1)
-	if err != nil && err != c.ErrUnknownView {
-		return nil, err
-	}
-	v.Editable = true
-	v.Title = title
-	g.Cursor = true
-
-	v, err = g.SetCurrentView("rh")
-
-	return v, err
+	return createCustomPane(g, title, "RH", (tw/2)+1, 0, tw-1, th-1)
 }
 
 func CreateTopRightQuarterView(g *c.Gui, title string) (*c.View, error) {
 	tw, th := g.Size()
-	// x0, y0, x1, y1
-	v, err := g.SetView("tr", (tw/2)+1, 0, tw-1, (th/2)-1)
-	if err != nil && err != c.ErrUnknownView {
-		return nil, err
-	}
-	v.Editable = true
-	v.Title = title
-	g.Cursor = true
-
-	v, err = g.SetCurrentView("tr")
-
-	return v, err
+	return createCustomPane(g, title, "TR", (tw/2)+1, 0, tw-1, (th/2)-1)
 }
 
 func CreateBottomRightQuarterView(g *c.Gui, title string) (*c.View, error) {
 	tw, th := g.Size()
-	// x0, y0, x1, y1
-	v, err := g.SetView("br", (tw/2)+1, (th/2)+1, tw-1, th-1)
-	if err != nil && err != c.ErrUnknownView {
-		return nil, err
-	}
-	v.Editable = true
-	v.Title = title
-	g.Cursor = true
-
-	v, err = g.SetCurrentView("br")
-
-	return v, err
+	return createCustomPane(g, title, "BR", (tw/2)+1, (th/2)+1, tw-1, th-1)
 }
 
 func CreateTopLeftQuarterView(g *c.Gui, title string) (*c.View, error) {
 	tw, th := g.Size()
-	// x0, y0, x1, y1
-	v, err := g.SetView("tl", 0, 0, (tw/2)-1, (th/2)-1)
-	if err != nil && err != c.ErrUnknownView {
-		return nil, err
-	}
-	v.Editable = true
-	v.Title = title
-	g.Cursor = true
-
-	v, err = g.SetCurrentView("tl")
-
-	return v, err
+	return createCustomPane(g, title, "TL", 0, 0, (tw/2)-1, (th/2)-1)
 }
 
 func CreateBottomLeftQuarterView(g *c.Gui, title string) (*c.View, error) {
 	tw, th := g.Size()
-	// x0, y0, x1, y1
-	v, err := g.SetView("bl", 0, (th/2)+1, (tw/2)-1, th-1)
+	return createCustomPane(g, title, "BL", 0, (th/2)+1, (tw/2)-1, th-1)
+}
+
+func createCustomPane(g *c.Gui, title, id string, x0, y0, x1, y1 int) (*c.View, error) {
+	v, err := g.SetView(id, x0, y0, x1, y1)
 	if err != nil && err != c.ErrUnknownView {
 		return nil, err
 	}
@@ -170,7 +119,7 @@ func CreateBottomLeftQuarterView(g *c.Gui, title string) (*c.View, error) {
 	v.Title = title
 	g.Cursor = true
 
-	v, err = g.SetCurrentView("bl")
+	v, err = g.SetCurrentView(id)
 
 	return v, err
 }
