@@ -161,6 +161,14 @@ func SetKeybindings(g *c.Gui) error {
 	if err := g.SetKeybinding("main", c.KeyEnter, c.ModNone, getLine); err != nil {
 		return err
 	}
+	// "Window manager"
+	if err := g.SetKeybinding(LEFT_HALF, c.KeyArrowLeft, c.ModNone, setCtx); err != nil {
+		return err
+	}
 
 	return nil
+}
+func setCtx(g *c.Gui, v *c.View) error {
+	_, err := g.SetCurrentView("view")
+
 }
